@@ -8,7 +8,7 @@ This project demonstrates practical applications of:
 
 * Text preprocessing
 * Feature engineering
-* Vectorization (TF-IDF)
+* Vectorisation (TF-IDF)
 * Similarity-based recommendation systems
 
 ---
@@ -28,7 +28,7 @@ The project uses three datasets:
 * Removed books that have existing movie adaptations
 * Handled missing values in critical columns
 * Cleaned textual data (lowercasing, removing punctuation)
-* Tokenized and structured text fields
+* Tokenised and structured text fields
 
 ### 3. Feature Engineering
 
