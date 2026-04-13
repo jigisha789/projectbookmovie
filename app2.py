@@ -4,9 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
-# -------------------------------
 # Cache data and model loading
-# -------------------------------
 
 @st.cache_resource
 def load_model_data():
@@ -25,9 +23,7 @@ books_dataset = model_data["books_dataset"]
 # Add lowercase column for case-insensitive matching
 movie_dataset["title_lower"] = movie_dataset["title"].str.lower()
 
-# -------------------------------
 # Recommendation Logic
-# -------------------------------
 
 @st.cache_data
 def recommend_books(movie_title, top_n=5):
@@ -59,27 +55,25 @@ def recommend_books(movie_title, top_n=5):
 
     return recommendations
 
-# -------------------------------
 # Streamlit UI
-# -------------------------------
 
 st.set_page_config(page_title="Book Recommendations", layout="wide")
-st.title("📚 Book Recommendations Based on Your Favorite Movie 🎬")
+st.title(" Book Recommendations Based on Your Favorite Movie ")
 
 st.markdown("Pick a movie and discover books you might enjoy!")
 
 # Movie selector
 movie_list = sorted(movie_dataset["title"].tolist())
-selected_movie = st.selectbox("🎥 Select a movie:", movie_list)
+selected_movie = st.selectbox(" Select a movie:", movie_list)
 
 # Recommend button
-if st.button("🔍 Recommend Books"):
+if st.button(" Recommend Books"):
     results = recommend_books(selected_movie)
 
     if results:
         st.success(f"Showing top recommendations based on *{selected_movie}*")
         for book in results:
-            with st.expander(f"📖 {book['title']}"):
+            with st.expander(f" {book['title']}"):
                 col1, col2 = st.columns([1, 3])
                 with col1:
                     st.image(book["coverImg"], use_column_width=True)
@@ -91,4 +85,4 @@ if st.button("🔍 Recommend Books"):
                         for award in book["awards"]:
                             st.markdown(f"- {award}")
     else:
-        st.warning("❌ Movie not found in the dataset. Please try another title.")
+        st.warning(" Movie not found in the dataset. Please try another title.")
