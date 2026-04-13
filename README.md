@@ -38,7 +38,7 @@ The project uses three datasets:
   * Movie genres
 * Created a unified **tags** column for similarity comparison
 
-### 4. Vectorization
+### 4. Vectorisation
 
 * Applied **TF-IDF (Term Frequency–Inverse Document Frequency)** to convert text into numerical vectors
 * Generated:
